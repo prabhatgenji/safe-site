@@ -1,0 +1,130 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" dir="ltr" data-theme="light" data-layout="vertical" [attr.data-sidebartype]="options.sidebartype" data-sidebar-position="absolute" data-header-position="fixed" data-boxed-layout="full" [ngClass]="{'show-sidebar': showMobileMenu}">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in topbar.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar" data-navbarbg="skin6">
+        <nav class="d-flex top-navbar navbar-expand-md navbar-light">
+            <div class="navbar-header" [ngClass]="(expandLogo)?'expand-logo':''" data-logobg="skin5">
+                <!-- This is for the sidebar toggle which is visible on mobile only -->
+                <a (click)="showMobileMenu = !showMobileMenu" class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+                    <i [ngClass]="(showMobileMenu)?'ti-close':'ti-menu'"></i>
+                </a>
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <a class="navbar-brand" href="/">
+                    <!-- Logo icon -->
+                    <b class="logo-icon">
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
+                        <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                        <!-- Light Logo icon -->
+                        <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                    </b>
+                    <!--End Logo icon -->
+                    <!-- Logo text -->
+                    <span class="logo-text">
+                        <!-- dark Logo text -->
+                        <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                        <!-- Light Logo text -->
+                        <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                    </span>
+                </a>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Toggle which is visible on mobile only -->
+                <!-- ============================================================== -->
+                <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" (click)="isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="!isCollapsed" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+                    <i class="ti-more"></i>
+                </a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
+                <app-navigation class="w-100"></app-navigation>
+            </div>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar" data-sidebarbg="skin5" (mouseover)="Logo()" (mouseout)="Logo()">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <app-sidebar></app-sidebar>
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <app-breadcrumb></app-breadcrumb>
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <router-outlet></router-outlet>
+            <!-- ============================================================== -->
+            <!-- End Start Page Content -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center">
+            <ng-template #license let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title">MIT License</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Copyright (c) 2020 Webircle</p>
+                    <p>Permission is hereby granted, free of charge, to any person obtaining a copy
+                        of this software and associated documentation files (the "Software"), to deal
+                        in the Software without restriction, including without limitation the rights
+                        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                        copies of the Software, and to permit persons to whom the Software is
+                        furnished to do so, subject to the following conditions:</p>
+                    <p>The above copyright notice and this permission notice shall be included in all
+                        copies or substantial portions of the Software.</p>
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                        SOFTWARE.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+            </ng-template>
+            &copy; <a href="https://webircle.com" target="_blank" class="text-primary">Webircle</a> 2020. All Rights Reserved. Licensed under the <span style="cursor: pointer;" (click)="openLicense(license)" class="text-primary">MIT license</span>.
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
