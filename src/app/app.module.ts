@@ -46,7 +46,7 @@ import { ErrorsComponent } from './errors/errors.component';
 		FormsModule,
 		HttpClientModule,
 		NgbModule,
-		RouterModule.forRoot(Approutes, { useHash: false })
+		RouterModule.forRoot(Approutes, { useHash: true })
 	],
 	bootstrap: [AppComponent]
 })
